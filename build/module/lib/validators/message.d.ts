@@ -1,0 +1,55 @@
+export declare const MESSAGE: {
+    STRING: {
+        CONTAINS: (propertyKey: string, str: string) => string;
+        IS_ALPHA: (propertyKey: string) => string;
+        IS_ALPHANUMERIC: (propertyKey: string) => string;
+        IS_ASCII: (propertyKey: string) => string;
+        IS_BASE32: (propertyKey: string) => string;
+        IS_BASE64: (propertyKey: string) => string;
+        IS_BOOLEAN_STRING: (propertyKey: string) => string;
+        IS_CREDIT_CARD: (propertyKey: string) => string;
+        IS_CURRENCY: (propertyKey: string) => string;
+        IS_DATA_URI: (propertyKey: string) => string;
+        IS_DATE_STRING: (propertyKey: string) => string;
+        IS_DECIMAL: (propertyKey: string) => string;
+        IS_EAN: (propertyKey: string) => string;
+        IS_EMAIL: (propertyKey: string) => string;
+        IS_ETHEREUM_ADDRESS: (propertyKey: string) => string;
+        IS_HASH: (propertyKey: string, algorithm: string) => string;
+        IS_HEXADECIMAL: (propertyKey: string) => string;
+        IS_HEX_COLOR: (propertyKey: string) => string;
+        IS_HSL: (propertyKey: string) => string;
+        IS_IBAN: (propertyKey: string) => string;
+        IS_IP: (propertyKey: string, ipVersion: string) => string;
+        IS_ISBN: (propertyKey: string, isbnVersion: string | number) => string;
+        IS_JSON: (propertyKey: string) => string;
+        IS_JWT: (propertyKey: string) => string;
+        IS_LOCALE: (propertyKey: string) => string;
+        IS_LOWERCASE: (propertyKey: string) => string;
+        IS_MAC_ADDRESS: (propertyKey: string) => string;
+        IS_MAGNET_URI: (propertyKey: string) => string;
+        IS_MIME_TYPE: (propertyKey: string) => string;
+        IS_MOBILE_PHONE: (propertyKey: string) => string;
+        IS_MONGO_ID: (propertyKey: string) => string;
+        IS_NUMBER_STRING: (propertyKey: string) => string;
+        IS_OCTAL: (propertyKey: string) => string;
+        IS_PORT: (propertyKey: string) => string;
+        IS_POSTAL_CODE: (propertyKey: string) => string;
+        IS_RGB_COLOR: (propertyKey: string) => string;
+        IS_SEM_VER: (propertyKey: string) => string;
+        IS_UPPERCASE: (propertyKey: string) => string;
+        IS_URL: (propertyKey: string) => string;
+        IS_UUID: (propertyKey: string) => string;
+        IS_STRING: (propertyKey: string) => string;
+        MAX_LENGTH: (propertyKey: string, maxLength: number) => string;
+        MIX_LENGTH: (propertyKey: string, minLength: number) => string;
+        NOT_CONTAINS: (propertyKey: string, str: string) => string;
+    };
+    NUMBER: {
+        IS_INT: (propertyKey: string) => string;
+        IS_NUMBER: (propertyKey: string) => string;
+    };
+    PROP: {
+        IS_ENUM: (values: unknown[]) => string;
+    };
+};
