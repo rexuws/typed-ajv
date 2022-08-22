@@ -36,10 +36,3 @@ __decorate([
     Type(ValidatedResult),
     __metadata("design:type", Array)
 ], Result.prototype, "data", void 0);
-// async function main() {
-//   const typedAjv = new TypedAjvStorage({
-//     allErrors: false,
-//     compileAsync: false,
-//   });
-//   const compiled = await typedAjv.compile(Result);
-// }

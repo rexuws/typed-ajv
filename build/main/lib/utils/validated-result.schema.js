@@ -37,10 +37,3 @@ __decorate([
     __metadata("design:type", Array)
 ], Result.prototype, "data", void 0);
 exports.Result = Result;
-// async function main() {
-//   const typedAjv = new TypedAjvStorage({
-//     allErrors: false,
-//     compileAsync: false,
-//   });
-//   const compiled = await typedAjv.compile(Result);
-// }

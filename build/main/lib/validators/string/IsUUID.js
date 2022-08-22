@@ -15,6 +15,6 @@ const isUUID = (0, decorators_1.makeValidationDecorator)({}, (_, propertyKey, __
     };
 });
 /**
- * Checks if the string is an url.
+ * Checks if the string is an UUID.
  */
 exports.IsUUID = isUUID;

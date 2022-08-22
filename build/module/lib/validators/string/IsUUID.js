@@ -12,6 +12,6 @@ const isUUID = makeValidationDecorator({}, (_, propertyKey, __, opts) => {
     };
 });
 /**
- * Checks if the string is an url.
+ * Checks if the string is an UUID.
  */
 export const IsUUID = isUUID;

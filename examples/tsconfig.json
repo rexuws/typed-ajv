@@ -1,0 +1,11 @@
+{
+  "extends": "../tsconfig.module",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "module": "ESNext",
+    "target": "ESNext",
+    "tsBuildInfoFile": "./dist/.tsbuildinfo"
+  },
+  "include": ["src/**/*.ts", "src/**/*.mts", "src/validate.js"]
+}

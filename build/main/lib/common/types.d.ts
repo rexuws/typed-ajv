@@ -9,7 +9,7 @@ export declare type AnyType = any;
 export declare type AllowedType = 'string' | 'boolean' | 'timestamp' | 'int8' | 'uint8' | 'int16' | 'uint16' | 'int32' | 'uint32' | 'float32' | 'float64';
 export declare type ParsedMeta<T> = O.Record<string, T>;
 /**
- * Type presentation for unfinished JTD Schema built from decorators
+ * Type representation for unfinished JTD Schema built from decorators
  *
  * When `definitions` contains no more class, a schema will be treated as a normal JTDSchema and will be used to generate a `serializer` / `parser`
  */

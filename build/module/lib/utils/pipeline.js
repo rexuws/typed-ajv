@@ -18,15 +18,3 @@ export const pipeline = (...args) => {
     handler.extends = (newPick, ...newFns) => pipeline(newPick, ...fns, ...newFns);
     return handler;
 };
-const xxx = (a, b, c) => a + b + c;
-const p = pipeline((_, args) => args, xxx);
-p(1, 2, 3);
-const a = p
-    .extends((a, args) => [a, args[1], args[2]], (a, b, c) => a * b * c, (a, b, c) => a * b * c, (a, b, c) => a * b * c, (a, b, c) => a * b * c, (a, b, c) => a * b * c, (a, b, c) => a * b * c, (a, b, c) => a * b * c, (a, b, c) => a * b * c, (a, b, c) => a * b * c, (a, b, c) => a * b * c, (a, b, c) => a * b * c)
-    .extends((_, args) => args, (a, b, c) => a * b * c);
-const b = a.extends((res, args) => args, (a, b, c) => a * b * c);
-// b()
-// a.
-// p.extends()
-// type Params = Parameters<typeof xxx>;
-// p.extends()
