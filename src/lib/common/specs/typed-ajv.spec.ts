@@ -1,11 +1,10 @@
 import 'reflect-metadata';
 import test from 'ava';
 
-import { Type } from '../transformers/Type';
-import { IsString } from '../validators';
-
-import { commonParser } from './parsers';
-import { TypedAjvStorage } from './typed-ajv';
+import { Type } from '../../transformers/Type';
+import { IsString } from '../../validators';
+import { commonParser } from '../parsers';
+import { TypedAjvStorage } from '../typed-ajv';
 
 let typedAjv: TypedAjvStorage;
 

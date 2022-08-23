@@ -196,9 +196,7 @@ const parseTypeDefs: MetaVisitor<Meta, ParsedResult> = (
   if (type.elements) {
     output.constraints[key] = {
       type: 'array',
-      items: {
-        type: type.elements.type,
-      },
+      items: output.constraints[key],
     };
   }
 };

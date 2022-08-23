@@ -106,9 +106,7 @@ const parseTypeDefs = (key, meta, output, options) => {
     if (type.elements) {
         output.constraints[key] = {
             type: 'array',
-            items: {
-                type: type.elements.type,
-            },
+            items: output.constraints[key],
         };
     }
 };
