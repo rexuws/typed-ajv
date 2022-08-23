@@ -43,6 +43,8 @@ const { validate } = await typedAjv.compile(Team);
 
 const validTeam = validate(mockValidTeam);
 
+console.log(deepLog(validate.schema));
+
 console.log(
   'Validate for => ',
   deepLog(mockValidTeam),

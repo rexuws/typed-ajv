@@ -5,11 +5,11 @@ import { User } from './User';
 export class Team {
   @IsString()
   @IsUUID()
-  id: string;
+  id: string[];
 
   @IsString()
   name: string;
 
   @Type(User)
-  members: User;
+  members: User[];
 }

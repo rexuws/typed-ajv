@@ -75,7 +75,7 @@ require-from-string@^2.0.2:
 
 typed-ajv@rexuws/typed-ajv#development:
   version "0.0.1"
-  resolved "https://codeload.github.com/rexuws/typed-ajv/tar.gz/11e012c6174b7d0746ab28212347d569c16efaf2"
+  resolved "https://codeload.github.com/rexuws/typed-ajv/tar.gz/9b4bbe7f9496026d58546476d2cf66c7db969cee"
   dependencies:
     "@bitauth/libauth" "^1.17.1"
     ajv "^8.11.0"

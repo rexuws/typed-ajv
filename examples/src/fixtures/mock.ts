@@ -21,13 +21,13 @@ export const mockInvalidMemberUserMissingManagerId: Partial<User> = {
 };
 
 export const mockValidTeam: OptionalDeep<Team> = {
-  id: '12345678-1234-1234-1234-123456789012',
-  members: mockValidMemberUser,
+  id: ['17'] as any,
+  members: [mockValidMemberUser],
   name: 'Valid Team',
 };
 
 export const mockInvalidTeam: OptionalDeep<Team> = {
-  id: '12345678-1234-1234-1234-123456789012',
-  members: mockInvalidMemberUserMissingManagerId,
+  id: ['12345678-1234-1234-1234-123456789012'],
+  members: [mockInvalidMemberUserMissingManagerId],
   name: 'Invalid Team',
 };

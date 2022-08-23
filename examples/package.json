@@ -12,5 +12,5 @@
   "dependencies": {
     "typed-ajv": "rexuws/typed-ajv#development"
   },
- "type": "module"
+  "type": "module"
 }
