@@ -28,15 +28,22 @@ __decorate([
     (0, IsString_1.IsString)(),
     __metadata("design:type", Array)
 ], Strings.prototype, "strs", void 0);
+class StringCustomMessage {
+}
+__decorate([
+    (0, IsString_1.IsString)({ errorMessage: 'custom message' }),
+    __metadata("design:type", String)
+], StringCustomMessage.prototype, "str", void 0);
 let typedAjv;
 // test.before.
-ava_1.default.beforeEach('should validate string property', async () => {
+ava_1.default.beforeEach(() => {
     typedAjv = new typed_ajv_1.TypedAjvStorage(parsers_1.commonParser, {
         compileAsync: true,
         validateNested: true,
     });
 });
-(0, ava_1.default)('should validate string property', (t) => {
+(0, ava_1.default)('should validate string property', async (t) => {
+    await typedAjv.compile(User);
     t.notThrows(() => {
         const compiled = typedAjv.get(User);
         const validUser = {
@@ -52,7 +59,6 @@ ava_1.default.beforeEach('should validate string property', async () => {
         const validStrings = {
             strs: ['test', 'test2'],
         };
-        console.log('log', compiled.validate.toString());
         t.is(compiled.validate(validStrings), true);
     });
 });
@@ -72,5 +78,23 @@ ava_1.default.beforeEach('should validate string property', async () => {
         },
     ];
     t.is(compiled.validate(invalidUser), false);
+    t.deepEqual(compiled.validate.errors, expectError);
+});
+(0, ava_1.default)('should invalidate non string property and print custom message', async (t) => {
+    await typedAjv.compile(StringCustomMessage);
+    const compiled = typedAjv.get(StringCustomMessage);
+    const invalid = {
+        str: 123,
+    };
+    const expectError = [
+        {
+            instancePath: '/str',
+            schemaPath: '#/properties/str/type',
+            keyword: 'type',
+            params: { type: 'string' },
+            message: 'custom message',
+        },
+    ];
+    t.is(compiled.validate(invalid), false);
     t.deepEqual(compiled.validate.errors, expectError);
 });

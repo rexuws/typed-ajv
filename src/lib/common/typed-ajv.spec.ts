@@ -1,10 +1,11 @@
 import 'reflect-metadata';
 import test from 'ava';
 
-import { Type } from '../../transformers/Type';
-import { IsString } from '../../validators';
-import { commonParser } from '../parsers';
-import { TypedAjvStorage } from '../typed-ajv';
+import { Type } from '../transformers/Type';
+import { IsString } from '../validators';
+
+import { commonParser } from './parsers';
+import { TypedAjvStorage } from './typed-ajv';
 
 let typedAjv: TypedAjvStorage;
 
@@ -28,6 +29,8 @@ class C {
   @Type(A)
   nested: A[];
 }
+
+class Dummy {}
 
 test.beforeEach(() => {
   typedAjv = new TypedAjvStorage(commonParser, {
@@ -59,7 +62,7 @@ test('typedAjv.get should return compiled functions', async (t) => {
 test('typedAjv.get should throw error if target is not compiled', (t) => {
   t.throws(
     () => {
-      typedAjv.get(A);
+      typedAjv.get(Dummy);
     },
     { instanceOf: Error }
   );

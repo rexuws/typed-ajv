@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import test from 'ava';
-import { Parser } from '../parsers';
+import { Parser } from './parsers';
 const meta = {
     constraint: {
         type: 'string',

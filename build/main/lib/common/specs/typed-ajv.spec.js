@@ -45,6 +45,8 @@ __decorate([
     (0, Type_1.Type)(A),
     __metadata("design:type", Array)
 ], C.prototype, "nested", void 0);
+class Dummy {
+}
 ava_1.default.beforeEach(() => {
     typedAjv = new typed_ajv_1.TypedAjvStorage(parsers_1.commonParser, {
         compileAsync: true,
@@ -68,7 +70,7 @@ ava_1.default.beforeEach(() => {
 });
 (0, ava_1.default)('typedAjv.get should throw error if target is not compiled', (t) => {
     t.throws(() => {
-        typedAjv.get(A);
+        typedAjv.get(Dummy);
     }, { instanceOf: Error });
 });
 (0, ava_1.default)('should validate dummy class A', async (t) => {

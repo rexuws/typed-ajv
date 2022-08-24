@@ -25,15 +25,23 @@ __decorate([
     IsString(),
     __metadata("design:type", Array)
 ], Strings.prototype, "strs", void 0);
+class StringCustomMessage {
+    str;
+}
+__decorate([
+    IsString({ errorMessage: 'custom message' }),
+    __metadata("design:type", String)
+], StringCustomMessage.prototype, "str", void 0);
 let typedAjv;
 // test.before.
-test.beforeEach('should validate string property', async () => {
+test.beforeEach(() => {
     typedAjv = new TypedAjvStorage(commonParser, {
         compileAsync: true,
         validateNested: true,
     });
 });
-test('should validate string property', (t) => {
+test('should validate string property', async (t) => {
+    await typedAjv.compile(User);
     t.notThrows(() => {
         const compiled = typedAjv.get(User);
         const validUser = {
@@ -49,7 +57,6 @@ test('should validate string[] property', async (t) => {
         const validStrings = {
             strs: ['test', 'test2'],
         };
-        console.log('log', compiled.validate.toString());
         t.is(compiled.validate(validStrings), true);
     });
 });
@@ -69,5 +76,23 @@ test('should invalidate non string property', async (t) => {
         },
     ];
     t.is(compiled.validate(invalidUser), false);
+    t.deepEqual(compiled.validate.errors, expectError);
+});
+test('should invalidate non string property and print custom message', async (t) => {
+    await typedAjv.compile(StringCustomMessage);
+    const compiled = typedAjv.get(StringCustomMessage);
+    const invalid = {
+        str: 123,
+    };
+    const expectError = [
+        {
+            instancePath: '/str',
+            schemaPath: '#/properties/str/type',
+            keyword: 'type',
+            params: { type: 'string' },
+            message: 'custom message',
+        },
+    ];
+    t.is(compiled.validate(invalid), false);
     t.deepEqual(compiled.validate.errors, expectError);
 });
