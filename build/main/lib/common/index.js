@@ -17,3 +17,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./typed-ajv"), exports);
 __exportStar(require("./types"), exports);
 __exportStar(require("./parsers"), exports);
+__exportStar(require("./plugin"), exports);

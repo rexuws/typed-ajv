@@ -87,14 +87,14 @@ export class TypedAjvStorage<
 
     this.#async = !!compileAsync;
 
-    if (constructJSONSchemaFns) {
+    if (constructJSONSchemaFns?.length) {
       this.#constructJSONSchemaFn = pipeline(
         (schema, args) => [schema, args[1], args[2]] as typeof args,
         ...constructJSONSchemaFns
       );
     }
 
-    if (constructJTDSchemaFns) {
+    if (constructJTDSchemaFns?.length) {
       this.#constructJTDSchemaFn = pipeline(
         (schema, args) => [schema, args[1], args[2]] as typeof args,
         ...constructJTDSchemaFns

@@ -193,7 +193,7 @@ const buildAllOfSchema = (
         then.map(([property]) => [
           property,
           {
-            validateAny: (_: any, data: any) => {
+            validateAny: (_: AnyType, data: AnyType) => {
               delete data[property];
               return true;
             },

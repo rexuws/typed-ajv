@@ -18,3 +18,4 @@ __exportStar(require("./decorators"), exports);
 __exportStar(require("./parser"), exports);
 __exportStar(require("./types"), exports);
 __exportStar(require("./validate-any"), exports);
+__exportStar(require("./plugin"), exports);

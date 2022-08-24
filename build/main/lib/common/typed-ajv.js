@@ -57,10 +57,10 @@ class TypedAjvStorage {
     init() {
         const { compileAsync, constructJSONSchemaFns, constructJTDSchemaFns } = __classPrivateFieldGet(this, _TypedAjvStorage_options, "f");
         __classPrivateFieldSet(this, _TypedAjvStorage_async, !!compileAsync, "f");
-        if (constructJSONSchemaFns) {
+        if (constructJSONSchemaFns === null || constructJSONSchemaFns === void 0 ? void 0 : constructJSONSchemaFns.length) {
             __classPrivateFieldSet(this, _TypedAjvStorage_constructJSONSchemaFn, (0, utils_1.pipeline)((schema, args) => [schema, args[1], args[2]], ...constructJSONSchemaFns), "f");
         }
-        if (constructJTDSchemaFns) {
+        if (constructJTDSchemaFns === null || constructJTDSchemaFns === void 0 ? void 0 : constructJTDSchemaFns.length) {
             __classPrivateFieldSet(this, _TypedAjvStorage_constructJTDSchemaFn, (0, utils_1.pipeline)((schema, args) => [schema, args[1], args[2]], ...constructJTDSchemaFns), "f");
         }
         return [this.initAjv(), this.initJtd()];

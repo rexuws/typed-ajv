@@ -39,7 +39,7 @@ const _apply = (target: O.Object, key: string, value: unknown) => {
 const apply = <TMeta extends Meta = Meta>(
   target: O.Object,
   key: string,
-  meta: InsertMeta<TMeta> | TMeta
+  meta: AnyType | TMeta
 ) => {
   mark(target, key);
 

@@ -4,6 +4,7 @@
 node_modules
 test
 src/**.js
+src/tests
 coverage
 *.log
 package-lock.json
