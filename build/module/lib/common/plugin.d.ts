@@ -11,7 +11,8 @@ export interface ITypedAjvVisitorPlugin<TMeta extends Meta = Meta, TParsedResult
 export interface ITypedAjvBasePlugin<TParsedResult extends ParsedResult = ParsedResult> extends TypedAjvStorageOption<TParsedResult> {
     name: string;
 }
-export declare class TypedAjvBuilder<TMeta extends Meta = Meta, TParsedResult extends ParsedResult = ParsedResult> {
+declare type BuilderType = 'parser' | 'visitor';
+export declare class TypedAjvBuilder<TMeta extends Meta = Meta, TParsedResult extends ParsedResult = ParsedResult, TBuilderType extends BuilderType = 'parser', THasPlugin extends boolean = false> {
     private mode;
     private lastPluginName;
     private parser;
@@ -20,9 +21,11 @@ export declare class TypedAjvBuilder<TMeta extends Meta = Meta, TParsedResult ex
     private initParser;
     private visitors;
     build(): TypedAjvStorage<TMeta, TParsedResult>;
-    usePlugin<CMeta extends TMeta = TMeta, CParsedResult extends TParsedResult = TParsedResult>(plugin: ITypedAjvParserPlugin<CMeta, CParsedResult> | ITypedAjvVisitorPlugin<CMeta, CParsedResult>): TypedAjvBuilder<CMeta, CParsedResult>;
+    usePluginType<TPluginType extends BuilderType>(type: THasPlugin extends true ? never : TPluginType): TypedAjvBuilder<TMeta, TParsedResult, TPluginType>;
+    usePlugin<CMeta extends TMeta = TMeta, CParsedResult extends TParsedResult = TParsedResult>(plugin: TBuilderType extends 'parser' ? ITypedAjvParserPlugin<CMeta, CParsedResult> : ITypedAjvVisitorPlugin<CMeta, CParsedResult>): TypedAjvBuilder<CMeta, CParsedResult, TBuilderType, true>;
     useOptions(options: TypedAjvStorageOption<TParsedResult>): this;
     private handleParserPlugin;
     private handleVisitorPlugin;
     private handleOptions;
 }
+export {};

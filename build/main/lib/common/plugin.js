@@ -37,6 +37,11 @@ class TypedAjvBuilder {
             : parsers_1.Parser.combineParser(this.initParser, ...this.visitors);
         return new typed_ajv_1.TypedAjvStorage(parser, Object.assign(Object.assign({}, this.options), { ajv }));
     }
+    usePluginType(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    type) {
+        return this;
+    }
     usePlugin(plugin) {
         if ('parser' in plugin) {
             this.handleParserPlugin(plugin);

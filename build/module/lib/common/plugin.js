@@ -26,6 +26,11 @@ export class TypedAjvBuilder {
             ajv,
         });
     }
+    usePluginType(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    type) {
+        return this;
+    }
     usePlugin(plugin) {
         if ('parser' in plugin) {
             this.handleParserPlugin(plugin);

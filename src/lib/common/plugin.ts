@@ -31,9 +31,13 @@ export interface ITypedAjvBasePlugin<
   name: string;
 }
 
+type BuilderType = 'parser' | 'visitor';
+
 export class TypedAjvBuilder<
   TMeta extends Meta = Meta,
-  TParsedResult extends ParsedResult = ParsedResult
+  TParsedResult extends ParsedResult = ParsedResult,
+  TBuilderType extends BuilderType = 'parser',
+  THasPlugin extends boolean = false
 > {
   private mode: 'parser' | 'visitor' = 'parser';
 
@@ -71,14 +75,21 @@ export class TypedAjvBuilder<
     });
   }
 
+  usePluginType<TPluginType extends BuilderType>(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    type: THasPlugin extends true ? never : TPluginType
+  ): TypedAjvBuilder<TMeta, TParsedResult, TPluginType> {
+    return this as AnyType;
+  }
+
   usePlugin<
     CMeta extends TMeta = TMeta,
     CParsedResult extends TParsedResult = TParsedResult
   >(
-    plugin:
-      | ITypedAjvParserPlugin<CMeta, CParsedResult>
-      | ITypedAjvVisitorPlugin<CMeta, CParsedResult>
-  ): TypedAjvBuilder<CMeta, CParsedResult> {
+    plugin: TBuilderType extends 'parser'
+      ? ITypedAjvParserPlugin<CMeta, CParsedResult>
+      : ITypedAjvVisitorPlugin<CMeta, CParsedResult>
+  ): TypedAjvBuilder<CMeta, CParsedResult, TBuilderType, true> {
     if ('parser' in plugin) {
       this.handleParserPlugin(plugin);
 
